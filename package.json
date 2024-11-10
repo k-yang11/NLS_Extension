@@ -1,0 +1,70 @@
+{
+  "name": "NLS",
+  "displayName": "NLS:Natural-Level Synthesis for Hardware Implementation",
+  "description": "This extension uses GenAI to creat system-level HDL designs from natural language descriptions.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*",
+    "onCommand:verilogGenerator.addApiKey",
+    "onCommand:verilogGenerator.selectModel",
+    "onCommand:verilogGenerator.generateVerilog",
+    "onCommand:verilogGenerator.packageCode"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "NLS.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "verilogGenerator.addApiKey",
+        "title": "Add OpenAI API Key"
+      },
+      {
+        "command": "verilogGenerator.selectModel",
+        "title": "Select OpenAI Model"
+      },
+      {
+        "command": "verilogGenerator.generateVerilog",
+        "title": "Generate Verilog Code"
+      },
+      {
+        "command": "verilogGenerator.packageCode",
+        "title": "Package Verilog Code"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.8",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.54.0",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.11.1",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "@types/archiver": "^6.0.2",
+    "@types/axios": "^0.9.36",
+    "archiver": "^7.0.1",
+    "axios": "^1.7.7",
+    "openai": "^4.68.1"
+  }
+}
